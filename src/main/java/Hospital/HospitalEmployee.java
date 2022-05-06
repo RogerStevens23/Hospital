@@ -1,6 +1,6 @@
 package Hospital;
 
-public abstract class HospitalEmployee
+public abstract class HospitalEmployee implements Comparable<HospitalEmployee>
 {
 
     // Fields
@@ -20,4 +20,14 @@ public abstract class HospitalEmployee
 
     // Abstract Methods
     public abstract int calculatePay();
+
+    @Override
+    public int compareTo(HospitalEmployee employee)
+    {
+        if(this.getName().compareTo(employee.getName()) < 0)
+            return -1;
+        else if(this.getName().compareTo(employee.getName()) > 0)
+            return 1;
+        return 0;
+    }
 }

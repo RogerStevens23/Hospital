@@ -2,6 +2,7 @@ package Hospital;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Hospital
@@ -82,5 +83,14 @@ public class Hospital
                 result.append(((Janitor) employee).isCleaning());
         }
         return result.toString().trim();
+    }
+
+    public void showAllEmployees()
+    {
+        ArrayList<HospitalEmployee> employeesList = new ArrayList<>(employeeList.values());
+        Collections.sort(employeesList);
+
+        for(HospitalEmployee employee : employeesList)
+            System.out.println(employee.getName() + " " + employee.getEmployeeNumber());
     }
 }
